@@ -1,0 +1,23 @@
+<h2>Gemi detayı</h2>
+
+@if(ship() === null){
+    <p>Gemi bulunamadı</p>
+    <a routerLink="/ships">Listeye dön</a>
+}@else {
+    <p><b>Ad: </b> {{ship()!.name}}</p>
+    <p><b>Kaptan :</b> {{ship()!.captain}}</p>
+
+    <button type="button" (click)="onFabricate()"> İmale et</button>
+
+    @if(message()){
+        <p style="margin-top:8px">{{message()}}</p>
+    }
+
+    <hr>
+
+
+    <a routerLink="/ships">Listeye dön</a>
+
+    <a routerLink="/fabricateCompletion" style="margin-left:12px">İmal edilenler</a>
+
+}

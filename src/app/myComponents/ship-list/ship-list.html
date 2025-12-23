@@ -1,0 +1,8 @@
+<h2>Gemi Listesi</h2>
+
+<ul>
+  @for(s of ships();track s.id){
+  <li>{{ s.name }} - {{ s.captain }}</li>
+  <a [routerLink]="['/ships', s.id]"> Detay</a>
+  }
+</ul>
