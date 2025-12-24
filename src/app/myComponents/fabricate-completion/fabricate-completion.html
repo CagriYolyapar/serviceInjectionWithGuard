@@ -1,1 +1,19 @@
-<p>fabricate-completion works!</p>
+<h2>İmal Edilen Gemiler</h2>
+
+<p>Toplam : {{ fabricateService.count() }}</p>
+
+@if(fabricateService.fabricated().length === 0){
+<p>Henüz üretilmiş olan bir gemi yok</p>
+<a routerLink="/ships">Gemi altyapı listesine git</a>
+}@else {
+<ul>
+  @for(s of fabricateService.fabricated();track s.id){
+  <li>
+    <b>{{ s.name }}</b> -{{ s.captain }}
+    <button type="button" (click)="fabricateService.decommissionShip(s.id)">Yok et</button>
+  </li>
+  }
+</ul>
+}
+
+<button type="button" (click)="logout()">Logout</button>
